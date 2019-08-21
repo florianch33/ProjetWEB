@@ -8,16 +8,38 @@ function manageData(key) {
             url: 'ajax.php',
             method: 'POST',
             dataType: 'text',
-            date: {
+            data: {
                 key: key,
                 nom: nom.val(),
                 prenom: prenom.val(),
                 fonction: fonction.val()
             }, success: function (response) {	
+            	alert(response);
             }
 
         });
 	}    
+}
+
+function getData(start, limit){
+		$.ajax({
+            url: 'ajax.php',
+            method: 'POST',
+            dataType: 'text',
+            data: {
+                key: 'getData',
+                start: start,
+                limit: limit
+            }, success: function (response) {	
+              if (response != "reachedMax"){
+            	$('tbody').append(response);
+            	start += limit;
+            	getData(start, limit)
+            }
+
+           }
+
+        });  
 }
 
 function isNotEmpty(caller) {
