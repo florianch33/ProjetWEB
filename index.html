@@ -33,13 +33,23 @@
     		</div>
 
     		<div class="modal-body">
-    			<input type="text" class="form-control" placeholder="Nom" id="nom"><br>
-    			<input class="form-control" placeholder="Prenom" id="prenom"><br>
-    			<input class="form-control" placeholder="Fonction" id="fonction"><br>
+          <div id="editContent">
+    			<input type="text" class="form-control" id="nom"><br>
+    			<input class="form-control"  id="prenom"><br>
+    			<input class="form-control"  id="fonction"><br>
+          <input type="hidden" id="editRowID" value="0"><br>
+          </div>
+
+          <div id="showContent" style="display:none;">
+          <div id="nomView"></div>  
+          <div id="prenomView"></div>  
+          <div id="fonctionView"></div>  
+          </div>
     		</div>
 
     		<div class="modal-footer">
-    			<input type="button" onclick="manageData('addNew')" value="Save" class="btn btn-success">
+          <input type="button" class="btn btn-primary" data-dismiss="modal" value="Close" id="closeBtn" style="display:none;">
+    			<input type="button" id="manageBtn" onclick="manageData('addNew')" value="Save" class="btn btn-success">
     		</div>
     	    </div>
     	</div>
@@ -61,7 +71,7 @@
 					</tr>
 				</thead>
         <tbody>
-          
+
         </tbody>
 			</table>
 		</div>
@@ -73,7 +83,7 @@ $(document).ready(function() {
 	$("#addNew").on('click', function(){
 		$("#tableManager").modal('show');
 	});
-	getData(0,10);
+	getData();
 });
 </script>
 
