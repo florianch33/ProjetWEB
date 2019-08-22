@@ -33,8 +33,6 @@ function getData(start, limit){
             }, success: function (response) {	
               if (response != "reachedMax"){
             	$('tbody').append(response);
-            	start += limit;
-            	getData(start, limit)
             }
 
            }

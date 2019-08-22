@@ -3,13 +3,11 @@
 
       if (isset($_POST['key'])) {
 
-
          if ($_POST['key'] == 'getData') {
 
-            $start = $conn->quote($_POST['start']);
-      	    $limit = $conn->quote($_POST['limit']);
-      		$sql = $conn->query("SELECT * FROM personnel LIMIT $start, $limit");
+      		$sql = $conn->query("SELECT * FROM personnel LIMIT 0, 10");
       		$rows = $sql->fetchAll();
+            $sql->execute();
       		$datarows = count($rows);
       		if ($datarows > 0) {
       			$response = "";
@@ -17,13 +15,13 @@
       		    	$response .='
 
       		    <tr>
-                     <td>'.$data["id"].'</td>
-                     <td>'.$data["nom"].'</td>
-                     <td>'.$data["prenom"].'</td>
-                     <td>'.$data["fonction"].'</td>
+                     <td>'.$data['id'].'</td>
+                     <td>'.$data['nom'].'</td>
+                     <td>'.$data['prenom'].'</td>
+                     <td>'.$data['fonction'].'</td>
                      <td>
                      <input type="button" value="Edit" class="btn btn-primary">
-                     <input type="button" value="View" class="btn">
+                     <input type="button" value="View" class="btn btn-success">
                      <input type="button" value="Delete" class="btn btn-danger">
                      </td>
       		    </tr>
