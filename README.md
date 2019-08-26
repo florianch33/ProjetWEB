@@ -10,10 +10,11 @@ Modifier dans /etc/hoss -> Ajouter l'url [monsite.com]
 
 - Activer le SSL (openssl) : sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/apache2/ssl/apache2ssl.key -out /etc/apache2/ssl/apache2ssl.crt
 
-Ajouter dans le fichier de configuration du VHOST ->           
- SSLEngine on
- SSLCertificateFile /etc/apache2/ssl/apache2ssl.crt
- SSLCertificateKeyFile /etc/apache2/ssl/apache2ssl.key
+Ajouter dans le fichier de configuration du VHOST ->  
+
+SSLEngine on
+SSLCertificateFile /etc/apache2/ssl/apache2ssl.crt
+SSLCertificateKeyFile /etc/apache2/ssl/apache2ssl.key
 
 
 
